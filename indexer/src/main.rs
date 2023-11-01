@@ -106,7 +106,6 @@ async fn main() -> Result<()> {
     let database_url = get_env("DATABASE_URL").unwrap();
 
     let postgres_client = PostgresClient::new(&database_url).await?;
-    postgres_client.create_table().await?;
 
     let provider = Provider::<Ws>::connect(rpc_url).await?;
     let client = Arc::new(provider);
